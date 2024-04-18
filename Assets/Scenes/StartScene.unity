@@ -1127,6 +1127,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624611384445387781, guid: e14df5ff787abfe4d96ce76dc7a087b2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624611384445387781, guid: e14df5ff787abfe4d96ce76dc7a087b2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2317972770976721865, guid: e14df5ff787abfe4d96ce76dc7a087b2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1135,7 +1143,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4941104455639429470, guid: e14df5ff787abfe4d96ce76dc7a087b2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e14df5ff787abfe4d96ce76dc7a087b2, type: 3}
 --- !u!224 &1575958002 stripped
 RectTransform:
