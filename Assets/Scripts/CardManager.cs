@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
+    [SerializeField] private RandomInstantiate randomInstantiate;
+    
     private Card firstCardSelected;
     private int movesCount = 0;
     private int matchesCount = 0;
-
+    
     public event Action<int> OnMovesChanged;
     public event Action<int> OnMatchesChanged;
+    public event Action OnAllMatchesFound;
 
     public int MovesCount 
     {
@@ -23,11 +27,14 @@ public class CardManager : MonoBehaviour
 
     public int MatchesCount 
     {
-        get => matchesCount;
-        private set 
-        {
+        get { return matchesCount; }
+        private set {
             matchesCount = value;
             OnMatchesChanged?.Invoke(matchesCount);
+            if (randomInstantiate != null && matchesCount == randomInstantiate.objectsToInstantiate.Length)
+            {
+                OnAllMatchesFound?.Invoke();
+            }
         }
     }
 

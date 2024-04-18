@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 309948359}
   - component: {fileID: 309948361}
   - component: {fileID: 309948362}
+  - component: {fileID: 309948363}
+  - component: {fileID: 309948364}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -187,6 +189,32 @@ MonoBehaviour:
   cardManager: {fileID: 689364211}
   movesText: {fileID: 328897777}
   matchesText: {fileID: 832852205}
+--- !u!114 &309948363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309948358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f255da7295eb2448768cc2ec2ec116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSwitcher: {fileID: 309948364}
+  cardManager: {fileID: 689364211}
+--- !u!114 &309948364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309948358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117f58991e7d2e7479e139f333aebd14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &328897777 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 310062153502767400, guid: df1ce0c7fcbfb014ca78a6e6d6339b80, type: 3}
@@ -361,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bcc58e55b87dc498ec9d600bae83ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomInstantiate: {fileID: 689364210}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
