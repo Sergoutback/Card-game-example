@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
@@ -16,7 +17,7 @@ public class CardManager : MonoBehaviour
 
     public void CardSelected(Card selectedCard)
     {
-        Debug.Log("SelectedCard name = " + selectedCard);
+        Debug.Log("SelectedCard name = " + selectedCard.name);
         if (firstCardSelected == null)
         {
             // If this is the first card selected
@@ -25,28 +26,34 @@ public class CardManager : MonoBehaviour
         }
         else
         {
-            // Open second selected card
+            // Open the second selected card
             selectedCard.RevealCard(true);
-
-            if (firstCardSelected.name == selectedCard.name)
-            {
-                Debug.Log("firstCardSelected.name = " + firstCardSelected.name);
-                Debug.Log("selectedCard.name = " + selectedCard.name);
-                
-                // If the parents' names are the same, leave the cards open and turn them off
-                firstCardSelected.frontImage.SetActive(false);
-                selectedCard.frontImage.SetActive(false);
-            }
-            else
-            {
-                // If the names do not match, close both cards
-                firstCardSelected.backImage.SetActive(true);
-                firstCardSelected.frontImage.SetActive(false);
-                selectedCard.backImage.SetActive(true);
-                selectedCard.frontImage.SetActive(false);
-            }
-
-            firstCardSelected = null;
+            
+            StartCoroutine(ShowSecondCardAndResolve(selectedCard));
         }
+    }
+
+    private IEnumerator ShowSecondCardAndResolve(Card selectedCard)
+    {
+        yield return new WaitForSeconds(1);
+
+        if (firstCardSelected.name == selectedCard.name)
+        {
+            Debug.Log("Names match. firstCardSelected.name = " + firstCardSelected.name + ", selectedCard.name = " + selectedCard.name);
+            // If the parents' names are the same, turn off the cards
+            firstCardSelected.frontImage.SetActive(false);
+            selectedCard.frontImage.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Names do not match. firstCardSelected.name = " + firstCardSelected.name + ", selectedCard.name = " + selectedCard.name);
+            // If the names do not match, close both cards
+            firstCardSelected.backImage.SetActive(true);
+            firstCardSelected.frontImage.SetActive(false);
+            selectedCard.backImage.SetActive(true);
+            selectedCard.frontImage.SetActive(false);
+        }
+
+        firstCardSelected = null;
     }
 }
