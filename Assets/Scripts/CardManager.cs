@@ -1,9 +1,46 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
     private Card firstCardSelected;
+    private int movesCount = 0;
+    private int matchesCount = 0;
+
+    public event Action<int> OnMovesChanged;
+    public event Action<int> OnMatchesChanged;
+
+    public int MovesCount 
+    {
+        get => movesCount;
+        private set 
+        {
+            movesCount = value;
+            OnMovesChanged?.Invoke(movesCount);
+        }
+    }
+
+    public int MatchesCount 
+    {
+        get => matchesCount;
+        private set 
+        {
+            matchesCount = value;
+            OnMatchesChanged?.Invoke(matchesCount);
+        }
+    }
+
+    // Methods for changing counters
+    public void IncrementMoves() 
+    {
+        MovesCount++;
+    }
+
+    public void IncrementMatches() 
+    {
+        MatchesCount++;
+    } 
 
     void OnEnable()
     {
@@ -28,6 +65,8 @@ public class CardManager : MonoBehaviour
         {
             // Open the second selected card
             selectedCard.RevealCard(true);
+
+            IncrementMoves(); // Increment move count on every pair attempt
             
             StartCoroutine(ShowSecondCardAndResolve(selectedCard));
         }
@@ -43,6 +82,7 @@ public class CardManager : MonoBehaviour
             // If the parents' names are the same, turn off the cards
             firstCardSelected.frontImage.SetActive(false);
             selectedCard.frontImage.SetActive(false);
+            IncrementMatches();  // Increment matches count on successful match
         }
         else
         {
@@ -55,5 +95,7 @@ public class CardManager : MonoBehaviour
         }
 
         firstCardSelected = null;
+        
+        Debug.Log($"Total moves: {movesCount}, Total matches: {matchesCount}");
     }
 }
