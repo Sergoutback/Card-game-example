@@ -277,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 689364207}
   - component: {fileID: 689364208}
-  - component: {fileID: 689364209}
+  - component: {fileID: 689364210}
   m_Layer: 5
   m_Name: CardField
   m_TagString: Untagged
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &689364209
+--- !u!114 &689364210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,11 +338,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 689364206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37f91daded73d084aab7971fffda6b21, type: 3}
+  m_Script: {fileID: 11500000, guid: fb99b625bc4077743b520f16824b4052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardValue: 16
-  CardPrefab:
+  objectsToInstantiate:
   - {fileID: 5444599045777335435, guid: 5af9d6c5b81e97b4b84239ac2c2ba729, type: 3}
   - {fileID: 2777637989023799687, guid: b72192b79a79942409bd963c899e7493, type: 3}
   - {fileID: 7025305995220846824, guid: 9319a9fe103ebba48afe5f39071db2ae, type: 3}
@@ -350,14 +349,6 @@ MonoBehaviour:
   - {fileID: 7817414644664445677, guid: aec9791a0816c6549b5409b3261b345a, type: 3}
   - {fileID: 2127926691572832234, guid: 829d72f531d3ddf458e785bc3e439bcb, type: 3}
   - {fileID: 2187174492732699796, guid: d9cc932da88644e46b2c7ff017c534b7, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
-  - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
   - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
   parentTransform: {fileID: 689364207}
 --- !u!1 &705507993
