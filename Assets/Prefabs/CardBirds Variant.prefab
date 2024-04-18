@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8777961100033908007, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Name
-      value: CardBird
+      value: CardBirds Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}

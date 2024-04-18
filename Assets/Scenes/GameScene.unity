@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 689364207}
   - component: {fileID: 689364208}
   - component: {fileID: 689364210}
+  - component: {fileID: 689364211}
   m_Layer: 5
   m_Name: CardField
   m_TagString: Untagged
@@ -351,6 +352,18 @@ MonoBehaviour:
   - {fileID: 2187174492732699796, guid: d9cc932da88644e46b2c7ff017c534b7, type: 3}
   - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
   parentTransform: {fileID: 689364207}
+--- !u!114 &689364211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689364206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52bcc58e55b87dc498ec9d600bae83ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

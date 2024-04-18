@@ -2,40 +2,38 @@ using UnityEngine;
 
 public class RandomInstantiate : MonoBehaviour
 {
-    public GameObject[] objectsToInstantiate; // Массив из 8 объектов для инстанциации
-    public Transform parentTransform; // Родительский объект для инстанциированных объектов
+    public GameObject[] objectsToInstantiate;
+    public Transform parentTransform; 
+
+    private CardManager cardManager;
 
     void Start()
     {
-        // Создать экземпляры объектов в первом случайном порядке
+        // Create object instances in first random order
         InstantiateRandomOrder();
 
-        // Создать экземпляры объектов во втором случайном порядке
+        // Create object instances in a second random order
         InstantiateRandomOrder();
     }
 
-    // Функция для инстанциации объектов в случайном порядке
     void InstantiateRandomOrder()
     {
         GameObject[] instances = new GameObject[objectsToInstantiate.Length];
 
-        // Копировать элементы в новый массив для перемешивания
+        // Copy elements to new array for shuffling
         for (int i = 0; i < objectsToInstantiate.Length; i++)
         {
             instances[i] = objectsToInstantiate[i];
         }
 
-        // Перемешивание массива
         ShuffleArray(instances);
 
-        // Инстанциация каждого объекта
         foreach (GameObject obj in instances)
         {
             Instantiate(obj, parentTransform);
         }
     }
 
-    // Функция для перемешивания массива
     void ShuffleArray(GameObject[] array)
     {
         for (int i = array.Length - 1; i > 0; i--)
