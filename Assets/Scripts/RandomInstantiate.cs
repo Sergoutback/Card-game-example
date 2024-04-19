@@ -7,6 +7,8 @@ public class RandomInstantiate : MonoBehaviour
 
     private CardManager cardManager;
 
+    private DataManager dataManager;
+
     void Start()
     {
         // Create object instances in first random order
@@ -14,6 +16,11 @@ public class RandomInstantiate : MonoBehaviour
 
         // Create object instances in a second random order
         InstantiateRandomOrder();
+    }
+
+    public void UpdateVariable(int objectsToInstantiate)
+    {
+        this.objectsToInstantiate = new GameObject[objectsToInstantiate];
     }
 
     void InstantiateRandomOrder()
