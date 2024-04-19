@@ -10,9 +10,6 @@ public class RandomInstantiate : MonoBehaviour
     public GameObject[] allObjects; 
     public GameObject[] objectsToInstantiate;
 
-    private CardManager cardManager;
-    private DataManager dataManager;
-
     void Start()
     {
         int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3); 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
+    public Animator playButtonAnimator;
     [SerializeField] private SceneSwitcher sceneSwitcher;
     [SerializeField] private CardManager cardManager;
     
@@ -32,6 +33,4 @@ public class SceneController : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
     }
-
-
 }

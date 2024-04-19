@@ -37,6 +37,7 @@ public class CardManager : MonoBehaviour
             if (randomInstantiate != null && matchesCount == randomInstantiate.objectsToInstantiate.Length)
             {
                 OnAllMatchesFound?.Invoke();
+                EndGame();
             }
         }
     }
@@ -110,5 +111,11 @@ public class CardManager : MonoBehaviour
         firstCardSelected = null;
         
         Debug.Log($"Total moves: {movesCount}, Total matches: {matchesCount}");
+    }
+    public void EndGame()
+    {
+        // Save the state that the game has been launched and will now restart
+        PlayerPrefs.SetInt("GamePlayed", 1);
+        PlayerPrefs.Save();
     }
 }
