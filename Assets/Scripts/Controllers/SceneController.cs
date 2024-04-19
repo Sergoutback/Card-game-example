@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private SceneSwitcher sceneSwitcher;
     [SerializeField] private CardManager cardManager;
+    
+    public event Action OnMatchesGameOverSound;
     
     private void OnEnable()
     {
@@ -20,8 +23,15 @@ public class SceneController : MonoBehaviour
 
     private void HandleAllMatchesFound()
     {
-        sceneSwitcher.NextScene(); // Переключение на следующую сцену
+        OnMatchesGameOverSound?.Invoke();
+        StartCoroutine(Delay(2));
+        sceneSwitcher.NextScene();
     }
-    
-    
+
+    private IEnumerator Delay(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
+
 }

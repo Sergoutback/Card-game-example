@@ -14,6 +14,9 @@ public class CardManager : MonoBehaviour
     public event Action<int> OnMovesChanged;
     public event Action<int> OnMatchesChanged;
     public event Action OnAllMatchesFound;
+    public event Action OnMatchesRevealSound;
+    public event Action OnMatchesYesSound;
+    public event Action OnMatchesNoSound;
 
     public int MovesCount 
     {
@@ -67,6 +70,7 @@ public class CardManager : MonoBehaviour
             // If this is the first card selected
             firstCardSelected = selectedCard;
             selectedCard.RevealCard(true); // Opening the card
+            OnMatchesRevealSound?.Invoke();
         }
         else
         {
@@ -85,6 +89,7 @@ public class CardManager : MonoBehaviour
 
         if (firstCardSelected.name == selectedCard.name)
         {
+            OnMatchesYesSound?.Invoke();
             Debug.Log("Names match. firstCardSelected.name = " + firstCardSelected.name + ", selectedCard.name = " + selectedCard.name);
             // If the parents' names are the same, turn off the cards
             firstCardSelected.frontImage.SetActive(false);
@@ -93,6 +98,7 @@ public class CardManager : MonoBehaviour
         }
         else
         {
+            OnMatchesNoSound?.Invoke();
             Debug.Log("Names do not match. firstCardSelected.name = " + firstCardSelected.name + ", selectedCard.name = " + selectedCard.name);
             // If the names do not match, close both cards
             firstCardSelected.backImage.SetActive(true);
