@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DataManager
 {
-    public static int level = 3;
+    public static int level;
+    public static int rows;
     
     public static void SaveLevel(int level)
     {
@@ -15,6 +16,17 @@ public class DataManager
     public static int LoadLevel()
     {
         return PlayerPrefs.GetInt("PlayerLevel");
+    }
+    
+    public static void SaveRowsCount(int rows)
+    {
+        PlayerPrefs.SetInt("RowsCount", rows);
+        PlayerPrefs.Save();
+    }
+    
+    public static int LoadRowsCount()
+    {
+        return PlayerPrefs.GetInt("RowsCount");
     }
     
 }

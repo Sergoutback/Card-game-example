@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon1: {fileID: 21300000, guid: c6347af29f74bac49867651750c5ecdd, type: 3}
   icon2: {fileID: 21300000, guid: d65c9e684326c164395cb594222ef735, type: 3}
+  controller: {fileID: 0}
 --- !u!1 &8957065256077377706
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +183,7 @@ GameObject:
   - component: {fileID: 1611680949663538707}
   - component: {fileID: 5525934657041424486}
   - component: {fileID: 4757722114315261052}
+  - component: {fileID: 2765387768606377716}
   m_Layer: 5
   m_Name: LevelButton
   m_TagString: Untagged
@@ -248,3 +250,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 2765387768606377716}
+          m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
+          m_MethodName: SetDifficulty
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2765387768606377716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957065256077377706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5501bc8ae924ad64da4d866d978c8223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLevel: 0

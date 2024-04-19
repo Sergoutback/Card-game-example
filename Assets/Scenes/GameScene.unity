@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 689364208}
   - component: {fileID: 689364210}
   - component: {fileID: 689364211}
+  - component: {fileID: 689364212}
   m_Layer: 5
   m_Name: CardField
   m_TagString: Untagged
@@ -367,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb99b625bc4077743b520f16824b4052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToInstantiate:
+  allObjects:
   - {fileID: 5444599045777335435, guid: 5af9d6c5b81e97b4b84239ac2c2ba729, type: 3}
   - {fileID: 2777637989023799687, guid: b72192b79a79942409bd963c899e7493, type: 3}
   - {fileID: 7025305995220846824, guid: 9319a9fe103ebba48afe5f39071db2ae, type: 3}
@@ -376,6 +377,7 @@ MonoBehaviour:
   - {fileID: 2127926691572832234, guid: 829d72f531d3ddf458e785bc3e439bcb, type: 3}
   - {fileID: 2187174492732699796, guid: d9cc932da88644e46b2c7ff017c534b7, type: 3}
   - {fileID: 5203107830626471647, guid: 03d4517ea4e2ea04db3a9150ee3896f4, type: 3}
+  objectsToInstantiate: []
   parentTransform: {fileID: 689364207}
 --- !u!114 &689364211
 MonoBehaviour:
@@ -390,6 +392,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomInstantiate: {fileID: 689364210}
+--- !u!114 &689364212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689364206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9895dfd4ce96754b8f4e74f5696e99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 4
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

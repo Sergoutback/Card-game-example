@@ -8,11 +8,14 @@ public class ToggleGroupController : MonoBehaviour
 
     public void ActivateToggle(ToggleIcon activeToggle)
     {
-        foreach (var toggle in toggles)
+        if (toggles != null)
         {
-            if (toggle != activeToggle)
+            foreach (var toggle in toggles)
             {
-                toggle.SetInactive();  // Deactivate all buttons except the active one
+                if (toggle != null && toggle != activeToggle)
+                {
+                    toggle.SetInactive(); // Deactivate all buttons except the active one
+                }
             }
         }
     }

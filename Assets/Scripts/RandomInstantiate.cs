@@ -1,16 +1,60 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RandomInstantiate : MonoBehaviour
 {
-    public GameObject[] objectsToInstantiate;
+    public int rows;
+    
     public Transform parentTransform; 
+    
+    public GameObject[] allObjects; 
+    public GameObject[] objectsToInstantiate;
 
     private CardManager cardManager;
-
     private DataManager dataManager;
 
     void Start()
     {
+        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3); 
+
+        int objectsCount;
+        int rowsCount;
+        switch (selectedDifficulty)
+        {
+            case 0:
+                objectsCount = 4;
+                rows = 2;
+                break;
+            case 1:
+                objectsCount = 6;
+                rows = 3;
+                break;
+            case 2:
+                objectsCount = 8;
+                rows = 4;
+                break;
+            case 3:
+                objectsCount = 8;
+                rows = 4;
+                break;
+            case 4:
+                objectsCount = 8;
+                rows = 4;
+                break;
+            default:
+                objectsCount = 8;
+                rows = 4;// Just in case something goes wrong
+                break;
+        }
+
+        SetRowsCount(rows);
+        
+        objectsToInstantiate = new GameObject[objectsCount];
+        for (int i = 0; i < objectsCount; i++)
+        {
+            objectsToInstantiate[i] = allObjects[i];  // Filling an array with the first N objects
+        }
+
         // Create object instances in first random order
         InstantiateRandomOrder();
 
@@ -51,6 +95,12 @@ public class RandomInstantiate : MonoBehaviour
             array[j] = temp;
         }
         Debug.Log("ShuffleArray Done!");
+    }
+    
+    public void SetRowsCount(int rows)
+    {
+        PlayerPrefs.SetInt("RowsCount", rows);
+        PlayerPrefs.Save();
     }
 }
 
