@@ -114,8 +114,6 @@ public class CardManager : MonoBehaviour
     }
     public void EndGame()
     {
-        // Save the state that the game has been launched and will now restart
-        PlayerPrefs.SetInt("GamePlayed", 1);
-        PlayerPrefs.Save();
+        DataManager.gamePlayed = 1;
     }
 }

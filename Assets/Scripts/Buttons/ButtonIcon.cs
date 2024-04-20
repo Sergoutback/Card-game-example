@@ -6,23 +6,23 @@ using UnityEngine.EventSystems;
 
 public class ButtonIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private Sprite defaultIcon;
-    [SerializeField] private Sprite pressedIcon; 
+    public Sprite defaultIcon;
+    public Sprite pressedIcon; 
 
-    private Image buttonImage; // Caching for optimization
+    public Image buttonImage; // Caching for optimization
 
-    private void Awake()
+    public virtual void Awake()
     {
         buttonImage = GetComponent<Image>();
         buttonImage.sprite = defaultIcon;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         buttonImage.sprite = pressedIcon;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public virtual void OnPointerUp(PointerEventData eventData)
     {
         buttonImage.sprite = defaultIcon;
     }

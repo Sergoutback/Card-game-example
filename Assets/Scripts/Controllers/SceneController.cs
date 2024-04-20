@@ -24,7 +24,7 @@ public class SceneController : MonoBehaviour
 
     private void HandleAllMatchesFound()
     {
-        OnMatchesGameOverSound?.Invoke();
+        //OnMatchesGameOverSound?.Invoke();
         StartCoroutine(Delay(2));
         sceneSwitcher.NextScene();
     }

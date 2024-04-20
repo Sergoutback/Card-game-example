@@ -12,6 +12,8 @@ public class RandomInstantiate : MonoBehaviour
 
     void Start()
     {
+        DataManager.gamePlayed = 0;
+        
         int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3); 
 
         int objectsCount;
@@ -57,11 +59,6 @@ public class RandomInstantiate : MonoBehaviour
 
         // Create object instances in a second random order
         InstantiateRandomOrder();
-    }
-
-    public void UpdateVariable(int objectsToInstantiate)
-    {
-        this.objectsToInstantiate = new GameObject[objectsToInstantiate];
     }
 
     void InstantiateRandomOrder()
