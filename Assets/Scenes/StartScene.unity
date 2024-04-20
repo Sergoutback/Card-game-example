@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -480,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 812968202}
     - target: {fileID: 7953545690559302799, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
       propertyPath: m_Text
-      value: Medium- Hard
+      value: Mid-Hard
       objectReference: {fileID: 0}
     - target: {fileID: 8957065256077377706, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
       propertyPath: m_Name
@@ -857,7 +857,7 @@ PrefabInstance:
       objectReference: {fileID: 812968202}
     - target: {fileID: 7953545690559302799, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
       propertyPath: m_Text
-      value: Easy-Medium
+      value: Easy-Mid
       objectReference: {fileID: 0}
     - target: {fileID: 8957065256077377706, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
       propertyPath: m_Name
@@ -1337,7 +1337,7 @@ PrefabInstance:
       objectReference: {fileID: 812968202}
     - target: {fileID: 7953545690559302799, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
       propertyPath: m_Text
-      value: Medium
+      value: Mid
       objectReference: {fileID: 0}
     - target: {fileID: 8957065256077377706, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
       propertyPath: m_Name
