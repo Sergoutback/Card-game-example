@@ -12,8 +12,7 @@ public class CardManager : MonoBehaviour
     
     private bool isProcessingPair = false;
     
-    //TODO check that all cards show the back side
-    //private bool isGameReady = false;
+    private bool isGameReady = false;
     
     public event Action<int> OnMovesChanged;
     public event Action<int> OnMatchesChanged;
@@ -45,6 +44,30 @@ public class CardManager : MonoBehaviour
             }
         }
     }
+    
+    void Start()
+    {
+        StartCoroutine(InitializeCards());
+    }
+
+    private IEnumerator InitializeCards()
+    {
+        // Show all cards face up
+        foreach (var card in randomInstantiate.allObjects)
+        {
+            card.GetComponent<Card>().RevealCard(true);
+        }
+
+        yield return new WaitForSeconds(2);  // Time for players to memorize the cards
+
+        // Turn the cards face down
+        foreach (var card in randomInstantiate.allObjects)
+        {
+            card.GetComponent<Card>().RevealCard(false);
+        }
+
+        isGameReady = true;  // Now you can start the game
+    }
 
     // Methods for changing counters
     public void IncrementMoves() 
@@ -69,7 +92,7 @@ public class CardManager : MonoBehaviour
 
     public void CardSelected(Card selectedCard)
     {
-        if (isProcessingPair)
+        if (!isGameReady || isProcessingPair)
         {
             return;
         }

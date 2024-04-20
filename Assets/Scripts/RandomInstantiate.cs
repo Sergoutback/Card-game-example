@@ -14,10 +14,9 @@ public class RandomInstantiate : MonoBehaviour
     {
         DataManager.gamePlayed = 0;
         
-        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3); 
+        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 4); 
 
         int objectsCount;
-        int rowsCount;
         switch (selectedDifficulty)
         {
             case 0:
