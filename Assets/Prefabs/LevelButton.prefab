@@ -169,8 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bfba79a0e3c6244bbfb0921f7c11f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon1: {fileID: 21300000, guid: c6347af29f74bac49867651750c5ecdd, type: 3}
-  icon2: {fileID: 21300000, guid: d65c9e684326c164395cb594222ef735, type: 3}
+  disableLevelIcon: {fileID: 21300000, guid: c6347af29f74bac49867651750c5ecdd, type: 3}
+  enableLevelIcon: {fileID: 21300000, guid: d65c9e684326c164395cb594222ef735, type: 3}
+  buttonImage: {fileID: 962620741775221489}
   controller: {fileID: 0}
 --- !u!1 &8957065256077377706
 GameObject:

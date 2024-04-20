@@ -21,20 +21,20 @@ public class RandomInstantiate : MonoBehaviour
         switch (selectedDifficulty)
         {
             case 0:
+                objectsCount = 2;
+                rows = 1;
+                break;
+            case 1:
                 objectsCount = 4;
                 rows = 2;
                 break;
-            case 1:
-                objectsCount = 6;
+            case 2:
+                objectsCount = 5;
                 rows = 3;
                 break;
-            case 2:
-                objectsCount = 8;
-                rows = 4;
-                break;
             case 3:
-                objectsCount = 8;
-                rows = 4;
+                objectsCount = 6;
+                rows = 3;
                 break;
             case 4:
                 objectsCount = 8;
