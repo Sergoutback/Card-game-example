@@ -2,19 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public Animator playButtonAnimator;
-    [SerializeField] private SceneSwitcher sceneSwitcher;
     [SerializeField] private CardManager cardManager;
-    
-    public event Action OnMatchesGameOverSound;
+    public AudioController audioController;
     
     private void OnEnable()
     {
         cardManager.OnAllMatchesFound += HandleAllMatchesFound;
-        Debug.Log("SceneController OnAllMatchesFound OnEnable");
     }
 
     private void OnDisable()
@@ -24,13 +21,11 @@ public class SceneController : MonoBehaviour
 
     private void HandleAllMatchesFound()
     {
-        //OnMatchesGameOverSound?.Invoke();
-        StartCoroutine(Delay(2));
-        sceneSwitcher.NextScene();
+        audioController = FindObjectOfType<AudioController>();;
+        if (audioController != null)
+        {
+            StartCoroutine(audioController.PlayEndGameSound());
+        }
     }
-
-    private IEnumerator Delay(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
+    
 }

@@ -1,60 +1,54 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    //public AudioClip soundEventGameOver;
+    public AudioClip soundEventGameOver;
     public AudioClip soundEventReveal;
     public AudioClip soundEventYes;
     public AudioClip soundEventNo;
     
     [SerializeField] private CardManager cardManager;
-    [SerializeField] private SceneController sceneController;
+    [SerializeField] private SceneSwitcher sceneSwitcher;
     
-    private AudioSource audioSrc;
+    private AudioSource audioSource;
     
 
     void Start()
     {
-        audioSrc = GetComponent<AudioSource>();
-    }
-    //TODO fix sound before destroy scene
-    // public void PlaySoundGameOver()
-    // {
-    //     audioSrc.clip = soundEventGameOver;
-    //     audioSrc.PlayOneShot(soundEventGameOver, 1f);
-    // }
-    [ContextMenu("Play Game Over Sound")]
-    public void PlaySoundGameOver()
-    {
-        audioSrc = GetComponent<AudioSource>();
-        if (audioSrc.isPlaying) audioSrc.Stop();
-        audioSrc.Play();
+        audioSource = GetComponent<AudioSource>();
     }
     public void PlaySoundReveal()
     {
-        audioSrc.clip = soundEventReveal;
-        audioSrc.Play();
+        audioSource.clip = soundEventReveal;
+        audioSource.Play();
     }
     public void PlaySoundEventYes()
     {
-        audioSrc.clip = soundEventYes;
-        audioSrc.Play();
+        audioSource.clip = soundEventYes;
+        audioSource.Play();
     }
 
     public void PlaySoundEventNo()
     {
-        audioSrc.clip = soundEventNo;
-        audioSrc.Play();
+        audioSource.clip = soundEventNo;
+        audioSource.Play();
+    }
+
+    public void PlaySoundGameOver()
+    {
+        audioSource.clip = soundEventGameOver; 
+        audioSource.Play();
     }
 
     public void StopSound()
     {
-        audioSrc.Stop();
+        audioSource.Stop();
     }
     
     private void OnEnable()
     {
-        sceneController.OnMatchesGameOverSound += PlaySoundGameOver;
+        cardManager.OnAllMatchesFound += PlaySoundGameOver;
         cardManager.OnMatchesRevealSound += PlaySoundReveal;
         cardManager.OnMatchesYesSound += PlaySoundEventYes;
         cardManager.OnMatchesNoSound += PlaySoundEventNo;
@@ -62,10 +56,17 @@ public class AudioController : MonoBehaviour
 
     private void OnDisable()
     {
-        sceneController.OnMatchesGameOverSound -= PlaySoundGameOver;
+        cardManager.OnAllMatchesFound -= PlaySoundGameOver;
         cardManager.OnMatchesRevealSound -= PlaySoundReveal;
         cardManager.OnMatchesYesSound -= PlaySoundEventYes;
         cardManager.OnMatchesNoSound -= PlaySoundEventNo;
+    }
+    
+    public IEnumerator PlayEndGameSound()
+    {
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        sceneSwitcher.NextScene();
     }
 }
 

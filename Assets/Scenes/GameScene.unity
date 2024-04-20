@@ -327,9 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f255da7295eb2448768cc2ec2ec116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playButtonAnimator: {fileID: 0}
-  sceneSwitcher: {fileID: 309948364}
   cardManager: {fileID: 689364211}
+  audioController: {fileID: 2073762404}
 --- !u!114 &309948364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1239,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61acf8bdc2a1fe0448b1d8576bf74cea, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1353,8 +1352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c34c9e43db2084a874b6d1977e8f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEventGameOver: {fileID: 8300000, guid: 61acf8bdc2a1fe0448b1d8576bf74cea, type: 3}
   soundEventReveal: {fileID: 8300000, guid: 7c6619e04764fcf4ca5a9a0221b51b69, type: 3}
   soundEventYes: {fileID: 8300000, guid: 8408adb30a125f84e812e82e0b405004, type: 3}
   soundEventNo: {fileID: 8300000, guid: 8b29879823a7f634ea8609e37fb8e34f, type: 3}
   cardManager: {fileID: 689364211}
-  sceneController: {fileID: 309948363}
+  sceneSwitcher: {fileID: 309948364}
