@@ -10,6 +10,11 @@ public class CardManager : MonoBehaviour
     private int movesCount = 0;
     private int matchesCount = 0;
     
+    private bool isProcessingPair = false;
+    
+    //TODO check that all cards show the back side
+    //private bool isGameReady = false;
+    
     public event Action<int> OnMovesChanged;
     public event Action<int> OnMatchesChanged;
     public event Action OnAllMatchesFound;
@@ -64,6 +69,11 @@ public class CardManager : MonoBehaviour
 
     public void CardSelected(Card selectedCard)
     {
+        if (isProcessingPair)
+        {
+            return;
+        }
+        
         Debug.Log("SelectedCard name = " + selectedCard.name);
         if (firstCardSelected == null)
         {
@@ -74,9 +84,10 @@ public class CardManager : MonoBehaviour
         }
         else
         {
+            isProcessingPair = true;
             // Open the second selected card
             selectedCard.RevealCard(true);
-
+            
             IncrementMoves(); // Increment move count on every pair attempt
             
             StartCoroutine(ShowSecondCardAndResolve(selectedCard));
@@ -90,7 +101,7 @@ public class CardManager : MonoBehaviour
         if (firstCardSelected.name == selectedCard.name)
         {
             OnMatchesYesSound?.Invoke();
-            Debug.Log("Names match. firstCardSelected.name = " + firstCardSelected.name + ", selectedCard.name = " + selectedCard.name);
+            Debug.Log("Names match. firstCardSelected = " + firstCardSelected.name + ", selectedCard = " + selectedCard.name);
             // If the parents' names are the same, turn off the cards
             firstCardSelected.frontImage.SetActive(false);
             selectedCard.frontImage.SetActive(false);
@@ -99,7 +110,7 @@ public class CardManager : MonoBehaviour
         else
         {
             OnMatchesNoSound?.Invoke();
-            Debug.Log("Names do not match. firstCardSelected.name = " + firstCardSelected.name + ", selectedCard.name = " + selectedCard.name);
+            Debug.Log("Names do not match. firstCardSelected = " + firstCardSelected.name + ", selectedCard = " + selectedCard.name);
             // If the names do not match, close both cards
             firstCardSelected.backImage.SetActive(true);
             firstCardSelected.frontImage.SetActive(false);
@@ -108,6 +119,7 @@ public class CardManager : MonoBehaviour
         }
 
         firstCardSelected = null;
+        isProcessingPair = false;
         
         Debug.Log($"Total moves: {movesCount}, Total matches: {matchesCount}");
     }

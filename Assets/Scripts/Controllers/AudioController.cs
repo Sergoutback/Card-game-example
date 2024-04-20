@@ -18,6 +18,12 @@ public class AudioController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
+    //TODO consider for the refactor
+    // public void PlaySoundByName(soundName)
+    // {
+    //     audioSource.clip = soundName;
+    //     audioSource.Play();
+    // }
     public void PlaySoundReveal()
     {
         audioSource.clip = soundEventReveal;
