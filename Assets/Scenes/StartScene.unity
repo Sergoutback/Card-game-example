@@ -493,6 +493,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1611680949663538707, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
   m_PrefabInstance: {fileID: 427902635}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &427902637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8957065256077377706, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
+  m_PrefabInstance: {fileID: 427902635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &474449993 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7456076880190436303, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
@@ -740,7 +745,7 @@ MonoBehaviour:
   - {fileID: 1933348724}
   - {fileID: 474449993}
   - {fileID: 1891951276}
-  defaultLevel: {fileID: 1241572686}
+  defaultLevel: {fileID: 427902637}
 --- !u!114 &850955371 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7456076880190436303, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
@@ -1349,11 +1354,6 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1611680949663538707, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
   m_PrefabInstance: {fileID: 1222651373}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1241572686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8957065256077377706, guid: c95bd91c3235e0448a367ed0399c9dee, type: 3}
-  m_PrefabInstance: {fileID: 1773008775}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1319271168
 GameObject:

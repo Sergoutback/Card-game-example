@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(GridLayoutGroup))]
 public class DynamicGridSize : MonoBehaviour
 {
-    public int columnCount = 4;
+    public int columnCount;
     public int rowCount;
     private GridLayoutGroup gridLayout;
     
@@ -13,6 +13,7 @@ public class DynamicGridSize : MonoBehaviour
 
     void Start()
     {
+        columnCount = PlayerPrefs.GetInt("ColumnCount", 4);
         rowCount = PlayerPrefs.GetInt("RowsCount", 4);
         gridLayout = GetComponent<GridLayoutGroup>();
         rectTransform = GetComponent<RectTransform>();
