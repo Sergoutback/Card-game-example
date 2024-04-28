@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 672353120632118791, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3852814f89d300d4abaaf442a99458f5, type: 3}
+      objectReference: {fileID: -572152463, guid: 415fc6e305d46fe40917d15d28571159, type: 3}
     - target: {fileID: 4803630101082154225, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8777961100033908007, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Name
-      value: Card
+      value: CardApple Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}

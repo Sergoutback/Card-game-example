@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb99b625bc4077743b520f16824b4052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  column: 0
   rows: 0
   parentTransform: {fileID: 689364207}
   allObjects:
