@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -21,9 +22,9 @@ public class RandomInstantiate : MonoBehaviour
     {
         DataManager.gamePlayed = 0;
         
-        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 4); 
+        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3); 
 
-        int objectsCount;
+        int objectsCount = 8; // Default case values
         switch (selectedDifficulty)
         {
             case 0:
@@ -59,7 +60,6 @@ public class RandomInstantiate : MonoBehaviour
         }
         
         SetColumnCount(column);
-
         SetRowsCount(rows);
         
         objectsToInstantiate = new GameObject[objectsCount];
@@ -69,6 +69,12 @@ public class RandomInstantiate : MonoBehaviour
         }
 
         CheckAndInstantiateRandomOrder();
+        
+        // Check if we need to add empty objects based on specific conditions
+        if (column == 5 && rows == 4)
+        {
+            AddEmptyObjects();
+        }
     }
 
     private void CheckAndInstantiateRandomOrder()
@@ -86,12 +92,6 @@ public class RandomInstantiate : MonoBehaviour
         concatenatedArray = new GameObject[firstBatch.Length + secondBatch.Length];
         System.Array.Copy(firstBatch, concatenatedArray, firstBatch.Length);
         System.Array.Copy(secondBatch, 0, concatenatedArray, firstBatch.Length, secondBatch.Length);
-
-        // Check if we need to add empty objects based on specific conditions
-        if (column == 5 && rows == 4)
-        {
-            AddEmptyObjects();
-        }
     }
 
 
@@ -110,13 +110,13 @@ public class RandomInstantiate : MonoBehaviour
         {
             concatenatedArray[i + 1] = concatenatedArray[i];
         }
-        concatenatedArray[12] = Instantiate(emptyObject, parentTransform);
+        //concatenatedArray[12] = Instantiate(emptyObject, parentTransform);
 
         for (int i = 11; i >= 7; i--)
         {
             concatenatedArray[i + 1] = concatenatedArray[i];
         }
-        concatenatedArray[7] = Instantiate(emptyObject, parentTransform);
+        //concatenatedArray[7] = Instantiate(emptyObject, parentTransform);
     }
 
 
@@ -132,9 +132,29 @@ public class RandomInstantiate : MonoBehaviour
 
         ShuffleArray(instances);
 
-        foreach (GameObject obj in instances)
+        if (column == 5 && rows == 4)
         {
-            Instantiate(obj, parentTransform);
+            int index = 0;
+            foreach (GameObject obj in instances)
+            {
+                if (index == 7)
+                {
+                    Instantiate(emptyObject, parentTransform);
+                }
+                else if (index == 12)
+                {
+                    Instantiate(emptyObject, parentTransform);
+                }
+                Instantiate(obj, parentTransform);
+                index++;
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in instances)
+            {
+                Instantiate(obj, parentTransform);
+            }
         }
     }
 
