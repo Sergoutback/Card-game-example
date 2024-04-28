@@ -8,10 +8,10 @@ public class RandomInstantiate : MonoBehaviour
 {
     public int column;
     public int rows;
-    
-    public Transform parentTransform; 
-    
-    public GameObject[] allObjects; 
+
+    public Transform parentTransform;
+
+    public GameObject[] allObjects;
     public GameObject[] objectsToInstantiate;
     public GameObject emptyObject;
 
@@ -21,8 +21,8 @@ public class RandomInstantiate : MonoBehaviour
     void Start()
     {
         DataManager.gamePlayed = 0;
-        
-        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3); 
+
+        int selectedDifficulty = PlayerPrefs.GetInt("SelectedDifficulty", 3);
 
         int objectsCount = 8; // Default case values
         switch (selectedDifficulty)
@@ -55,35 +55,29 @@ public class RandomInstantiate : MonoBehaviour
             default:
                 objectsCount = 8;
                 column = 4;
-                rows = 4;// Just in case something goes wrong
+                rows = 4; // Just in case something goes wrong
                 break;
         }
-        
+
         SetColumnCount(column);
         SetRowsCount(rows);
-        
+
         objectsToInstantiate = new GameObject[objectsCount];
         for (int i = 0; i < objectsCount; i++)
         {
-            objectsToInstantiate[i] = allObjects[i];  // Filling an array with the first N objects
+            objectsToInstantiate[i] = allObjects[i]; // Filling an array with the first N objects
         }
 
         CheckAndInstantiateRandomOrder();
-        
-        // Check if we need to add empty objects based on specific conditions
-        if (column == 5 && rows == 4)
-        {
-            AddEmptyObjects();
-        }
     }
 
     private void CheckAndInstantiateRandomOrder()
     {
-        InstantiateRandomOrder();
+        InstantiateObjects();
         // Create object instances in first random order
         GameObject[] firstBatch = instances;
-        
-        InstantiateRandomOrder();
+
+        InstantiateObjects();
 
         // Create object instances in a second random order
         GameObject[] secondBatch = instances;
@@ -92,35 +86,38 @@ public class RandomInstantiate : MonoBehaviour
         concatenatedArray = new GameObject[firstBatch.Length + secondBatch.Length];
         System.Array.Copy(firstBatch, concatenatedArray, firstBatch.Length);
         System.Array.Copy(secondBatch, 0, concatenatedArray, firstBatch.Length, secondBatch.Length);
+
+        ShuffleArray(concatenatedArray);
+
+        if (column == 5 && rows == 4)
+        {
+            int index = 0;
+            foreach (GameObject obj in concatenatedArray)
+            {
+                if (index == 7)
+                {
+                    Instantiate(emptyObject, parentTransform);
+                }
+                else if (index == 11)
+                {
+                    Instantiate(emptyObject, parentTransform);
+                }
+
+                Instantiate(obj, parentTransform);
+                index++;
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in concatenatedArray)
+            {
+                Instantiate(obj, parentTransform);
+            }
+        }
     }
 
 
-    private void AddEmptyObjects()
-    {
-        int originalLength = concatenatedArray.Length;
-        if (originalLength < 18)
-        {
-            Debug.LogError("Not enough elements to shift for empty objects.");
-            return;
-        }
-
-        System.Array.Resize(ref concatenatedArray, originalLength + 2);
-
-        for (int i = originalLength - 1; i >= 12; i--)
-        {
-            concatenatedArray[i + 1] = concatenatedArray[i];
-        }
-        //concatenatedArray[12] = Instantiate(emptyObject, parentTransform);
-
-        for (int i = 11; i >= 7; i--)
-        {
-            concatenatedArray[i + 1] = concatenatedArray[i];
-        }
-        //concatenatedArray[7] = Instantiate(emptyObject, parentTransform);
-    }
-
-
-    void InstantiateRandomOrder()
+    void InstantiateObjects()
     {
         instances = new GameObject[objectsToInstantiate.Length];
 
@@ -128,33 +125,6 @@ public class RandomInstantiate : MonoBehaviour
         for (int i = 0; i < objectsToInstantiate.Length; i++)
         {
             instances[i] = objectsToInstantiate[i];
-        }
-
-        ShuffleArray(instances);
-
-        if (column == 5 && rows == 4)
-        {
-            int index = 0;
-            foreach (GameObject obj in instances)
-            {
-                if (index == 7)
-                {
-                    Instantiate(emptyObject, parentTransform);
-                }
-                else if (index == 12)
-                {
-                    Instantiate(emptyObject, parentTransform);
-                }
-                Instantiate(obj, parentTransform);
-                index++;
-            }
-        }
-        else
-        {
-            foreach (GameObject obj in instances)
-            {
-                Instantiate(obj, parentTransform);
-            }
         }
     }
 
@@ -167,18 +137,19 @@ public class RandomInstantiate : MonoBehaviour
             array[i] = array[j];
             array[j] = temp;
         }
+
         Debug.Log("ShuffleArray Done!");
     }
-    
+
     public void SetColumnCount(int column)
     {
         PlayerPrefs.SetInt("ColumnCount", column);
         PlayerPrefs.Save();
     }
+
     public void SetRowsCount(int rows)
     {
         PlayerPrefs.SetInt("RowsCount", rows);
         PlayerPrefs.Save();
     }
 }
-

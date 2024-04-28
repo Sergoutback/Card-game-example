@@ -9,15 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 672353120632118791, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Color.b
-      value: 0.08962262
+      value: 0.3254902
       objectReference: {fileID: 0}
     - target: {fileID: 672353120632118791, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Color.g
-      value: 0.55275285
+      value: 0.7764706
       objectReference: {fileID: 0}
     - target: {fileID: 672353120632118791, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 672353120632118791, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4803630101082154225, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Pivot.x
@@ -104,20 +108,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5951395870518100016, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951395870518100016, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.3254902
       objectReference: {fileID: 0}
     - target: {fileID: 5951395870518100016, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Color.g
-      value: 0.29062742
+      value: 0.7764706
       objectReference: {fileID: 0}
     - target: {fileID: 5951395870518100016, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Color.r
-      value: 0.5660378
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951395870518100016, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8777961100033908007, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
       propertyPath: m_Name
-      value: CardEmpty
+      value: CardEmpty Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e805dd7271f47478b013d79f66f6d8, type: 3}
